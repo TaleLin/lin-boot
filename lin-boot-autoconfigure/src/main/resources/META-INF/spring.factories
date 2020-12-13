@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.talelin.linboot.autoconfigure.fileupload.qiniu.QiniuAutoConfiguration,\
+com.talelin.linboot.autoconfigure.fileupload.upyun.UpyunAutoConfiguration,\
+com.talelin.linboot.autoconfigure.fileupload.local.LocalAutoConfiguration  
