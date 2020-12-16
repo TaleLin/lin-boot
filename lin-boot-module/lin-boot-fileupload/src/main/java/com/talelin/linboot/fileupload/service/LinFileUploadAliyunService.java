@@ -3,6 +3,7 @@ package com.talelin.linboot.fileupload.service;
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSException;
+import com.aliyun.oss.model.PutObjectResult;
 import com.talelin.linboot.fileupload.api.LinFileUploadService;
 import com.talelin.linboot.fileupload.domain.LinFileUploadInput;
 import com.talelin.linboot.fileupload.domain.LinFileUploadOutput;
@@ -44,14 +45,15 @@ public class LinFileUploadAliyunService extends LinFileUploadService {
         byte[] fileBytes = file.getFileBytes();
         String fullFileName = file.getSavePath() + "/" + filename;
 
+        PutObjectResult result;
         try {
-            this.ossClient.putObject(this.bucketName, fullFileName, new ByteArrayInputStream(fileBytes));
+            result = this.ossClient.putObject(this.bucketName, fullFileName, new ByteArrayInputStream(fileBytes));
         } catch (OSSException | ClientException e) {
-            log.error("LinFileUpload === 本地存储上传失败：{}", e.getMessage(), e);
-            throw new LinFileUploadException("本地存储上传失败", e);
+            log.error("LinFileUpload === 阿里云对象存储上传失败：{}", e.getMessage(), e);
+            throw new LinFileUploadException("阿里云对象存储上传失败", e);
         }
 
         String url = domain + fullFileName;
-        return new LinFileUploadOutput(filename, url, null);
+        return new LinFileUploadOutput(filename, url, result);
     }
 }
