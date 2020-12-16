@@ -17,11 +17,11 @@
     <packaging>pom</packaging>
     
     <modules>
-        <module>lin-boot-core/lin-boot-log</module>
-        <module>lin-boot-core/lin-boot-fileupload</module>
+        <module>lin-boot-module/lin-boot-log</module>
+        <module>lin-boot-module/lin-boot-fileupload</module>
         <module>lin-boot-autoconfigure</module>
-        
-        
+    
+    
         <module>lin-boot-starter/lin-fileupload-spring-boot-starter</module>
     </modules>
     
