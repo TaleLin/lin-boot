@@ -31,6 +31,11 @@
             <artifactId>java-sdk</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
 </project>

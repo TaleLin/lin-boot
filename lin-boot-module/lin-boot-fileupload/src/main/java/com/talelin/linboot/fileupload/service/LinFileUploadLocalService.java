@@ -34,16 +34,16 @@ public class LinFileUploadLocalService extends LinFileUploadService {
         byte[] fileBytes = file.getFileBytes();
 
         savePath = savePath == null ? path : savePath;
-        String fullFilename = System.getProperty("user.dir") + "/" + savePath + "/" + filename;
+        String fullFilePath = System.getProperty("user.dir") + savePath + "/" + filename;
 
         try {
-            LinFileUtil.writeFile(fullFilename, fileBytes);
+            LinFileUtil.writeFile(fullFilePath, fileBytes);
         } catch (IOException e) {
             log.error("LinFileUpload === 本地存储上传失败：{}", e.getMessage(), e);
             throw new LinFileUploadException("本地存储上传失败", e);
         }
 
-        String url = domain + "/" + fullFilename;
+        String url = domain + savePath + "/" + filename;
         return new LinFileUploadOutput(filename, url, null);
     }
 }

@@ -17,12 +17,10 @@
     <packaging>pom</packaging>
     
     <modules>
+        <module>lin-boot-autoconfigure</module>
+        <module>lin-boot-starter/lin-fileupload-spring-boot-starter</module>
         <module>lin-boot-module/lin-boot-log</module>
         <module>lin-boot-module/lin-boot-fileupload</module>
-        <module>lin-boot-autoconfigure</module>
-    
-    
-        <module>lin-boot-starter/lin-fileupload-spring-boot-starter</module>
     </modules>
     
     <properties>
@@ -75,6 +73,11 @@
                 <groupId>com.upyun</groupId>
                 <artifactId>java-sdk</artifactId>
                 <version>4.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>3.11.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
