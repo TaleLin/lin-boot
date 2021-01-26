@@ -1,13 +1,16 @@
 package com.talelin.linboot.autoconfigure.fileupload.aliyun;
 
+import com.talelin.linboot.autoconfigure.fileupload.core.FileUploadProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * 阿里云对象存储上传配置
+ *
  * @author 桔子
  * @since 2020/12/16 21:56
  */
 @ConfigurationProperties("linboot.fileupload.aliyun")
-public class AliyunProperties {
+public class AliyunProperties extends FileUploadProperties {
 
     /**
      * 地区

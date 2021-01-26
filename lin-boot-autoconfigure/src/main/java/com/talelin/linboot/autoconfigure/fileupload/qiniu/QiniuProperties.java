@@ -1,17 +1,16 @@
 package com.talelin.linboot.autoconfigure.fileupload.qiniu;
 
-import com.talelin.linboot.fileupload.handler.post.LinFileUploadPostHandler;
-import com.talelin.linboot.fileupload.handler.pre.LinFileUploadPreHandler;
+import com.talelin.linboot.autoconfigure.fileupload.core.FileUploadProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import java.util.List;
-
 /**
+ * 七牛云对象存储文件上传配置
+ *
  * @author 桔子
  * @since 2020/12/12 21:24
  */
 @ConfigurationProperties("linboot.fileupload.qiniu")
-public class QiniuProperties {
+public class QiniuProperties extends FileUploadProperties {
 
     /**
      * 七牛云对象存储绑定的域名
@@ -37,10 +36,6 @@ public class QiniuProperties {
      * bucket 区域
      */
     private QiniuRegionEnum region;
-
-    private List<Class<LinFileUploadPreHandler>> preHandlers;
-
-    private List<Class<LinFileUploadPostHandler>> postHandlers;
 
     public String getDomain() {
         return domain;
@@ -82,19 +77,4 @@ public class QiniuProperties {
         this.region = region;
     }
 
-    public List<Class<LinFileUploadPreHandler>> getPreHandlers() {
-        return preHandlers;
-    }
-
-    public void setPreHandlers(List<Class<LinFileUploadPreHandler>> preHandlers) {
-        this.preHandlers = preHandlers;
-    }
-
-    public List<Class<LinFileUploadPostHandler>> getPostHandlers() {
-        return postHandlers;
-    }
-
-    public void setPostHandlers(List<Class<LinFileUploadPostHandler>> postHandlers) {
-        this.postHandlers = postHandlers;
-    }
 }

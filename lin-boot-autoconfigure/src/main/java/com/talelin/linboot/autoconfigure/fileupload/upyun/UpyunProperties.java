@@ -1,17 +1,16 @@
 package com.talelin.linboot.autoconfigure.fileupload.upyun;
 
-import com.talelin.linboot.fileupload.handler.post.LinFileUploadPostHandler;
-import com.talelin.linboot.fileupload.handler.pre.LinFileUploadPreHandler;
+import com.talelin.linboot.autoconfigure.fileupload.core.FileUploadProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import java.util.List;
-
 /**
+ * 又拍云对象存储文件上传配置
+ *
  * @author 桔子
  * @since 2020/12/13 02:07
  */
 @ConfigurationProperties("linboot.fileupload.upyun")
-public class UpyunProperties {
+public class UpyunProperties extends FileUploadProperties {
 
     /**
      * 云存储空间名称
@@ -32,12 +31,6 @@ public class UpyunProperties {
      * 又拍云云存储绑定的域名
      */
     private String domain;
-
-
-    private List<Class<LinFileUploadPreHandler>> preHandlers;
-
-    private List<Class<LinFileUploadPostHandler>> postHandlers;
-
 
     public String getBucket() {
         return bucket;
@@ -71,19 +64,4 @@ public class UpyunProperties {
         this.domain = domain;
     }
 
-    public List<Class<LinFileUploadPreHandler>> getPreHandlers() {
-        return preHandlers;
-    }
-
-    public void setPreHandlers(List<Class<LinFileUploadPreHandler>> preHandlers) {
-        this.preHandlers = preHandlers;
-    }
-
-    public List<Class<LinFileUploadPostHandler>> getPostHandlers() {
-        return postHandlers;
-    }
-
-    public void setPostHandlers(List<Class<LinFileUploadPostHandler>> postHandlers) {
-        this.postHandlers = postHandlers;
-    }
 }

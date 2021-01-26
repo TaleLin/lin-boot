@@ -1,13 +1,16 @@
 package com.talelin.linboot.autoconfigure.fileupload.tencentyun;
 
+import com.talelin.linboot.autoconfigure.fileupload.core.FileUploadProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * 腾讯云对象存储文件上传配置
+ *
  * @author 桔子
  * @since 2020/12/16 22:58
  */
-@ConfigurationProperties("linboot.fileupload.qiniu")
-public class TencentyunProperties {
+@ConfigurationProperties("linboot.fileupload.tencent")
+public class TencentyunProperties extends FileUploadProperties {
 
     /**
      * 域名

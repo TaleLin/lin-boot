@@ -1,6 +1,8 @@
 package com.talelin.linboot.autoconfigure.fileupload.qiniu;
 
 /**
+ * 七牛云对象存储文件上传地区配置
+ *
  * @author 桔子
  * @since 2020/12/12 22:23
  */
@@ -16,9 +18,9 @@ public enum QiniuRegionEnum {
     DONGNANYA(0,"东南亚"),
     ;
 
-    private Integer value;
+    private final Integer value;
 
-    private String desc;
+    private final String desc;
 
     QiniuRegionEnum(Integer value, String desc) {
         this.value = value;

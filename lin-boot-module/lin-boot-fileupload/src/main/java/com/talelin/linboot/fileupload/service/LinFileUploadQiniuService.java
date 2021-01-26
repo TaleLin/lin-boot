@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 七牛云 Kodo 对象存储
+ * 上传文件到七牛云
  *
  * @author 桔子
  * @since 2020/12/11 08:05
@@ -48,7 +48,7 @@ public class LinFileUploadQiniuService extends LinFileUploadService {
         String fileName = linFile.getFilename();
         byte[] fileBytes = linFile.getFileBytes();
 
-        Response response = null;
+        Response response;
         try {
             response = uploadManager.put(fileBytes, fileName, this.uploadToken);
         } catch (QiniuException e) {

@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 import java.io.ByteArrayInputStream;
 
 /**
+ * 腾讯云文件上传
+ *
  * @author 桔子
  * @since 2020/12/16 22:45
  */
@@ -20,11 +22,11 @@ public class LinFileUploadTencentyunService extends LinFileUploadService {
 
     private static final Logger log = LoggerFactory.getLogger(LinFileUploadTencentyunService.class);
 
-    private String domain;
+    private final String domain;
 
-    private String bucket;
+    private final String bucket;
 
-    private COSClient cosClient;
+    private final COSClient cosClient;
 
     public LinFileUploadTencentyunService(String domain, String bucket, COSClient cosClient) {
         this.domain = domain;

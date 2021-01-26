@@ -2,9 +2,11 @@ package com.talelin.linboot.fileupload.api;
 
 import com.talelin.linboot.fileupload.domain.LinFileUploadInput;
 import com.talelin.linboot.fileupload.domain.LinFileUploadOutput;
+import com.talelin.linboot.fileupload.exception.LinFileUploadException;
 import com.talelin.linboot.fileupload.handler.post.LinFileUploadPostHandler;
 import com.talelin.linboot.fileupload.handler.pre.LinFileUploadPreHandler;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,10 +17,15 @@ import java.util.List;
  */
 public abstract class LinFileUploadService {
 
-    private List<LinFileUploadPreHandler> preHandlers;
+    private List<LinFileUploadPreHandler> preHandlers = Collections.emptyList();
 
-    private List<LinFileUploadPostHandler> postHandlers;
+    private List<LinFileUploadPostHandler> postHandlers = Collections.emptyList();
 
+    /**
+     * @param linFile 文件数据
+     * @return 文件上传结果
+     * @throws LinFileUploadException 文件上传异常
+     */
     public LinFileUploadOutput upload(LinFileUploadInput linFile) {
         this.preHandlers.stream().anyMatch(preHandler -> !preHandler.handle(linFile));
         LinFileUploadOutput result = this.execute(linFile);
@@ -28,12 +35,12 @@ public abstract class LinFileUploadService {
     }
 
     /**
-     * 不同对象存储的文件上传过程
+     * 不同对象存储的文件上传实现
      *
      * @param file 文件数据
      * @return 文件上传结果
      */
-    public abstract LinFileUploadOutput execute(LinFileUploadInput file);
+    protected abstract LinFileUploadOutput execute(LinFileUploadInput file);
 
     public List<LinFileUploadPreHandler> getPreHandlers() {
         return preHandlers;

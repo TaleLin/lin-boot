@@ -1,5 +1,8 @@
 package com.talelin.linboot.fileupload.domain;
 
+
+import com.talelin.linboot.fileupload.util.LinFileUtil;
+
 /**
  * @author 桔子
  * @since 2020/12/12 23:20
@@ -23,7 +26,7 @@ public class LinFileUploadOutput {
 
     public LinFileUploadOutput(String filename, String url, Object payload) {
         this.filename = filename;
-        this.url = url;
+        this.url = LinFileUtil.normalizePath(url);
         this.payload = payload;
     }
 
